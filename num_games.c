@@ -25,6 +25,20 @@ bool check(int rand_num, int num) {
   return false;
 }
 
+bool isNum(int *n) {
+  if (scanf("%d", n) != 1) {
+    printf("you're dumb, that is not a number\n");
+    printf("do you even know what a number is\n");
+
+    int c;
+    while ((c = getchar()) != '\n' && c != EOF)
+      ;
+  } else
+    return false;
+
+  return true;
+}
+
 int main() {
   int number;
   int limit = 100;
@@ -33,14 +47,8 @@ int main() {
 
   while (true) {
     printf("Get the number: ");
-    if (scanf("%d", &number) != 1) {
-      printf("You're dumb, that is not a number\n");
-      printf("Do you even know what a number is\n");
 
-      int c;
-      while ((c = getchar()) != '\n' && c != EOF)
-        ;
-
+    if (isNum(&number)) {
       continue;
     }
 
