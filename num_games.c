@@ -8,11 +8,13 @@ int getRand(int limit) {
   return (rand() % limit) + 1;
 }
 
-bool check(int rand_num, int num) {
+bool check(int rand_num, int num, int *min, int *max) {
   if (rand_num > num) {
+    *min = num;
     printf("Random number is bigger\n");
   }
   if (rand_num < num) {
+    *max = num;
     printf("Random number is smaller\n");
   }
 
@@ -39,20 +41,24 @@ bool isNum(int *n) {
   return true;
 }
 
-int main() {
-  int number;
+int main(void) {
+  int number, min, max;
   int limit = 100;
-
+  min = 1;
+  max = limit;
   int rand_num = getRand(limit);
 
+  printf("NUMBER GAME\n");
+  printf("-----------\n");
+
   while (true) {
-    printf("Get the number: ");
+    printf("Guess a number beween %d and %d: ", min, max);
 
     if (isNum(&number)) {
       continue;
     }
 
-    if (check(rand_num, number)) {
+    if (check(rand_num, number, &min, &max)) {
       break;
     }
   }
