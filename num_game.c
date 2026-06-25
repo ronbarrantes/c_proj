@@ -3,6 +3,7 @@
 #include <stdlib.h>
 #include <time.h>
 
+static const int LIMIT = 100;
 int get_rand(int limit) { return (rand() % limit) + 1; }
 
 bool check(int rand_num, int num, int *min, int *max) {
@@ -39,10 +40,9 @@ bool is_num(int *n) {
 int main(void) {
   srand(time(NULL));
   int number, min, max;
-  int limit = 100;
   min = 1;
-  max = limit;
-  int rand_num = get_rand(limit);
+  max = LIMIT;
+  int rand_num = get_rand(LIMIT);
 
   printf("NUMBER GAME\n");
   printf("------ ----\n");
