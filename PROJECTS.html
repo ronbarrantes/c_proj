@@ -1,0 +1,323 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>C Learning Path</title>
+  <style>
+    :root {
+      color-scheme: light dark;
+      --bg: #f7f7f2;
+      --text: #1f2528;
+      --muted: #596166;
+      --panel: #ffffff;
+      --border: #d9ddd7;
+      --accent: #0f766e;
+      --accent-soft: #e0f2ef;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #111416;
+        --text: #edf1f2;
+        --muted: #a5adb2;
+        --panel: #1a1f22;
+        --border: #30383d;
+        --accent: #5eead4;
+        --accent-soft: #123331;
+      }
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.5;
+    }
+
+    main {
+      width: min(100%, 820px);
+      margin: 0 auto;
+      padding: 28px 16px 48px;
+    }
+
+    header {
+      margin-bottom: 28px;
+    }
+
+    h1 {
+      margin: 0 0 8px;
+      font-size: clamp(2rem, 9vw, 3.5rem);
+      line-height: 1.05;
+      letter-spacing: 0;
+    }
+
+    h2 {
+      margin: 34px 0 14px;
+      font-size: 1.35rem;
+      letter-spacing: 0;
+    }
+
+    p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    ol,
+    ul {
+      padding: 0;
+      margin: 0;
+      list-style: none;
+    }
+
+    .path {
+      display: grid;
+      gap: 12px;
+      counter-reset: step;
+    }
+
+    .project {
+      counter-increment: step;
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 12px;
+      padding: 14px;
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+    }
+
+    .number {
+      display: grid;
+      place-items: center;
+      width: 2.25rem;
+      height: 2.25rem;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-weight: 700;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .number::before {
+      content: counter(step);
+    }
+
+    .project h3 {
+      margin: 0 0 4px;
+      font-size: 1.05rem;
+      letter-spacing: 0;
+    }
+
+    .project p {
+      font-size: 0.95rem;
+    }
+
+    code {
+      padding: 0.1em 0.3em;
+      border-radius: 4px;
+      background: var(--accent-soft);
+      color: var(--text);
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-size: 0.9em;
+    }
+
+    .side-quests {
+      display: grid;
+      gap: 8px;
+    }
+
+    .side-quests li {
+      padding: 11px 12px;
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <h1>C Learning Path</h1>
+      <p>Build these in order. Each project should reuse something from the previous ones while adding one or two new ideas.</p>
+    </header>
+
+    <section aria-labelledby="main-path">
+      <h2 id="main-path">Main Path</h2>
+      <ol class="path">
+        <li class="project">
+          <span class="number" aria-hidden="true"></span>
+          <div>
+            <h3>Number guessing game</h3>
+            <p>Practice: loops, conditionals, functions, input validation, random numbers.</p>
+          </div>
+        </li>
+        <li class="project">
+          <span class="number" aria-hidden="true"></span>
+          <div>
+            <h3>Calculator</h3>
+            <p>Practice: menus, <code>switch</code>, functions, repeated input, error handling.</p>
+          </div>
+        </li>
+        <li class="project">
+          <span class="number" aria-hidden="true"></span>
+          <div>
+            <h3><code>todo.md</code> app</h3>
+            <p>Practice: structs, arrays, strings, reading and writing files. Store tasks as markdown-style lines like <code>- [ ] learn fgets</code>.</p>
+          </div>
+        </li>
+        <li class="project">
+          <span class="number" aria-hidden="true"></span>
+          <div>
+            <h3>Log parser</h3>
+            <p>Practice: line-by-line file reading, string searching, counters, simple parsing.</p>
+          </div>
+        </li>
+        <li class="project">
+          <span class="number" aria-hidden="true"></span>
+          <div>
+            <h3>Hex viewer for files</h3>
+            <p>Practice: binary file reading, bytes, offsets, formatting output.</p>
+          </div>
+        </li>
+        <li class="project">
+          <span class="number" aria-hidden="true"></span>
+          <div>
+            <h3>Parse a simple file format and harden it</h3>
+            <p>Practice: defensive parsing, malformed input, bounds checks, clean failure paths.</p>
+          </div>
+        </li>
+        <li class="project">
+          <span class="number" aria-hidden="true"></span>
+          <div>
+            <h3>SDL2 moving square</h3>
+            <p>Practice: using a library, opening a window, event loops, keyboard input, drawing.</p>
+          </div>
+        </li>
+        <li class="project">
+          <span class="number" aria-hidden="true"></span>
+          <div>
+            <h3>Pong</h3>
+            <p>Practice: game state, frame timing, collision checks, simple scoring.</p>
+          </div>
+        </li>
+        <li class="project">
+          <span class="number" aria-hidden="true"></span>
+          <div>
+            <h3>Snake</h3>
+            <p>Practice: arrays of positions, grid movement, input timing, growing state.</p>
+          </div>
+        </li>
+        <li class="project">
+          <span class="number" aria-hidden="true"></span>
+          <div>
+            <h3>Tiny text editor</h3>
+            <p>Practice: larger program structure, buffers, cursor movement, editing state.</p>
+          </div>
+        </li>
+        <li class="project">
+          <span class="number" aria-hidden="true"></span>
+          <div>
+            <h3>Todo list TUI</h3>
+            <p>Practice: <code>ncurses</code>, keyboard input, screen redraws, interactive state.</p>
+          </div>
+        </li>
+        <li class="project">
+          <span class="number" aria-hidden="true"></span>
+          <div>
+            <h3>File browser</h3>
+            <p>Practice: directories, file metadata, navigation, terminal UI organization.</p>
+          </div>
+        </li>
+        <li class="project">
+          <span class="number" aria-hidden="true"></span>
+          <div>
+            <h3>TCP echo client</h3>
+            <p>Practice: sockets, IP addresses, ports, <code>connect</code>, <code>send</code>, <code>recv</code>.</p>
+          </div>
+        </li>
+        <li class="project">
+          <span class="number" aria-hidden="true"></span>
+          <div>
+            <h3>TCP echo server</h3>
+            <p>Practice: <code>socket</code>, <code>bind</code>, <code>listen</code>, <code>accept</code>, server loops.</p>
+          </div>
+        </li>
+        <li class="project">
+          <span class="number" aria-hidden="true"></span>
+          <div>
+            <h3>Tiny HTTP server that serves one HTML file</h3>
+            <p>Practice: request parsing, response formatting, simple protocol handling.</p>
+          </div>
+        </li>
+        <li class="project">
+          <span class="number" aria-hidden="true"></span>
+          <div>
+            <h3>HTTP request inspector</h3>
+            <p>Practice: parsing headers, printing structured network data.</p>
+          </div>
+        </li>
+        <li class="project">
+          <span class="number" aria-hidden="true"></span>
+          <div>
+            <h3>Multi-client chat</h3>
+            <p>Practice: multiple connections, <code>select</code> or <code>poll</code>, message handling.</p>
+          </div>
+        </li>
+        <li class="project">
+          <span class="number" aria-hidden="true"></span>
+          <div>
+            <h3>Basic port scanner using <code>connect</code></h3>
+            <p>Practice: networking loops, timeouts, connection errors.</p>
+          </div>
+        </li>
+        <li class="project">
+          <span class="number" aria-hidden="true"></span>
+          <div>
+            <h3>DNS lookup toy</h3>
+            <p>Practice: name resolution, network APIs, binary protocol basics if you go deeper.</p>
+          </div>
+        </li>
+        <li class="project">
+          <span class="number" aria-hidden="true"></span>
+          <div>
+            <h3>Packet sniffer with <code>libpcap</code></h3>
+            <p>Practice: packet capture, Ethernet/IP/TCP headers, permissions, filters.</p>
+          </div>
+        </li>
+        <li class="project">
+          <span class="number" aria-hidden="true"></span>
+          <div>
+            <h3>Bluetooth experiments</h3>
+            <p>Practice: OS-specific APIs, hardware behavior, scanning, lower-level protocols.</p>
+          </div>
+        </li>
+      </ol>
+    </section>
+
+    <section aria-labelledby="side-quests">
+      <h2 id="side-quests">Side Quests</h2>
+      <p>These are useful, but they branch into graphics, games, or security. Do them when you want variety without abandoning the main path.</p>
+      <ul class="side-quests">
+        <li>Breakout</li>
+        <li>Paint program with mouse input</li>
+        <li>Particle simulator</li>
+        <li>Software renderer: draw pixels, lines, triangles yourself</li>
+        <li>Wireframe cube</li>
+        <li>Tiny Doom-style raycaster</li>
+        <li>Terminal dashboard that checks local services</li>
+        <li><code>ncurses</code> roguelike: move <code>@</code> around a map</li>
+        <li>Write unsafe string copy examples, then inspect crashes</li>
+        <li>Build a deliberately vulnerable login checker, then fix it</li>
+        <li>Write a toy fuzzer that feeds random input to your parser</li>
+        <li>Make a tiny password vault using file encryption later</li>
+      </ul>
+    </section>
+  </main>
+</body>
+</html>
