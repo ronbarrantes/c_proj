@@ -17,10 +17,10 @@ if [ ! -f "$src" ]; then
   exit 1
 fi
 
-mkdir -p build
+mkdir -p out 
 
 name="$(basename "$src" .c)"
-out="build/$name"
+out="out/$name"
 
 cc -Wall -Wextra -pedantic "$src" -o "$out"
 

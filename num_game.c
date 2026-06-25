@@ -3,19 +3,17 @@
 #include <stdlib.h>
 #include <time.h>
 
-int getRand(int limit) {
-  srand(time(NULL));
-  return (rand() % limit) + 1;
-}
+int get_rand(int limit) { return (rand() % limit) + 1; }
 
 bool check(int rand_num, int num, int *min, int *max) {
   if (rand_num > num) {
-    *min = num;
-    printf("Random number is bigger\n");
-  }
-  if (rand_num < num) {
-    *max = num;
-    printf("Random number is smaller\n");
+    if (*min < num)
+      *min = num;
+    printf("The number is bigger than %d\n", *min);
+  } else if (rand_num < num) {
+    if (*max > num)
+      *max = num;
+    printf("The number is smaller than %d\n", *max);
   }
 
   if (rand_num == num) {
@@ -23,38 +21,36 @@ bool check(int rand_num, int num, int *min, int *max) {
     return true;
   }
 
-  printf("number is %d\n", num);
   return false;
 }
 
-bool isNum(int *n) {
+bool is_num(int *n) {
   if (scanf("%d", n) != 1) {
-    printf("you're dumb, that is not a number\n");
-    printf("do you even know what a number is\n");
-
+    printf("You're dumb, that is not a number\n");
+    printf("Do you even know what a number is\n");
     int c;
     while ((c = getchar()) != '\n' && c != EOF)
       ;
   } else
-    return false;
-
-  return true;
+    return true;
+  return false;
 }
 
 int main(void) {
+  srand(time(NULL));
   int number, min, max;
   int limit = 100;
   min = 1;
   max = limit;
-  int rand_num = getRand(limit);
+  int rand_num = get_rand(limit);
 
   printf("NUMBER GAME\n");
-  printf("-----------\n");
+  printf("------ ----\n");
 
   while (true) {
-    printf("Guess a number beween %d and %d: ", min, max);
+    printf("Guess a number between %d and %d: ", min, max);
 
-    if (isNum(&number)) {
+    if (!is_num(&number)) {
       continue;
     }
 
